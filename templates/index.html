@@ -4,23 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
+    <style>
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fa;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #1e1e1e;
+            margin-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            width: 100%;
+            transition: border 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border: 1px solid #007aff;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007aff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        .qr-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        img {
+            max-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .download-btn {
+            background-color: #007aff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
 </head>
 <body>
-    <h1>QR Code Generator</h1>
-    
-    <form action="/generate" method="POST">
-        <label for="url">Enter URL:</label>
-        <input type="text" id="url" name="url" required placeholder="https://example.com">
-        <button type="submit">Generate QR Code</button>
-    </form>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        
+        <form action="/generate" method="POST">
+            <label for="url">Enter URL:</label>
+            <input type="text" id="url" name="url" required placeholder="https://example.com">
+            <button type="submit">Generate QR Code</button>
+        </form>
 
-    {% if qr_img_base64 %}
-        <h2>Generated QR Code</h2>
-        <img src="data:image/png;base64,{{ qr_img_base64 }}" alt="Generated QR Code">
-        <br>
-        <a href="{{ url_for('download', url=url) }}">
-            <button type="button">Download QR Code</button>
-        </a>
-    {% endif %}
+        {% if qr_img_base64 %}
+            <div class="qr-container">
+                <h2>Generated QR Code</h2>
+                <img src="data:image/png;base64,{{ qr_img_base64 }}" alt="Generated QR Code">
+                <a href="{{ url_for('download', url=url) }}" class="download-btn">Download QR Code</a>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
