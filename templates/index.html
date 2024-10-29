@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <!-- Dark Mode Toggle Button -->
-    <button class="toggle-btn" onclick="toggleTheme()">Switch Theme</button>
+    <!-- Dark Mode Toggle Switch -->
+    <div class="toggle-switch">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
 
     <div class="container">
         <h1>QR Code Generator</h1>
@@ -28,6 +35,7 @@
         {% endif %}
     </div>
 
-    <script src="../static/js/script.js"></script>
+    <!-- Link to External JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
