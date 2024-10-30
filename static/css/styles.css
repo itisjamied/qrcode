@@ -187,3 +187,35 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(18px);
 }
+
+.color-picker {
+    display: flex;
+    gap: 8px;
+}
+
+.color-radio {
+    appearance: none; /* Hides the default radio button */
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    margin: 0;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+/* Define colors for each radio button based on its ID */
+#fg_red.color-radio { background-color: #ff0000; }
+#fg_orange.color-radio { background-color: #ffa500; }
+#fg_yellow.color-radio { background-color: #ffff00; }
+#fg_green.color-radio { background-color: #008000; }
+#fg_blue.color-radio { background-color: #0000ff; }
+#fg_indigo.color-radio { background-color: #4b0082; }
+#fg_violet.color-radio { background-color: #ee82ee; }
+
+.color-radio:checked {
+    border-color: #333;
+    transform: scale(1.5);
+   margin: 0px 10px 0px 10px;
+}
