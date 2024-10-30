@@ -132,23 +132,6 @@ img {
     background-color: var(--button-hover-color);
 }
 
-/* .toggle-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 8px 12px;
-    background-color: var(--button-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.toggle-btn:hover {
-    background-color: var(--button-hover-color);
-} */
-
 /* Other existing styles */
 
 .toggle-switch {

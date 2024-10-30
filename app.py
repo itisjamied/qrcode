@@ -6,7 +6,7 @@ import base64
 app = Flask(__name__)
 
 # Function to generate a QR code and return it as a base64 image string
-def generate_qr_code(data):
+def generate_qr_code(data, fg_color="black", bg_color="white"):
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -15,7 +15,7 @@ def generate_qr_code(data):
     )
     qr.add_data(data)
     qr.make(fit=True)
-    img = qr.make_image(fill="black", back_color="white")
+    img = qr.make_image(fill_color=fg_color, back_color=bg_color)
 
     # Save the image to a BytesIO object and encode it in base64
     img_io = io.BytesIO()
@@ -31,7 +31,9 @@ def index():
 @app.route('/generate', methods=['POST'])
 def generate():
     url = request.form['url']
-    qr_img_base64, qr_img_io = generate_qr_code(url)
+    fg_color = request.form.get('fg_color', '#000000')  # Default to black
+    bg_color = request.form.get('bg_color', '#ffffff')  # Default to white
+    qr_img_base64, qr_img_io = generate_qr_code(url, fg_color=fg_color, bg_color=bg_color)
     
     # Render the QR code on the page by passing the base64 string
     return render_template('index.html', qr_img_base64=qr_img_base64, url=url)

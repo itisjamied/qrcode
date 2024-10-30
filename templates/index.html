@@ -23,7 +23,14 @@
         <form action="/generate" method="POST">
             <label for="url">Enter URL:</label>
             <input type="text" id="url" name="url" required placeholder="https://example.com">
-            <button type="submit">Generate QR Code</button>
+
+            <label for="fg_color">Foreground Color:</label>
+            <input type="color" id="fg_color" name="fg_color" value="#000000">
+            
+            <label for="bg_color">Background Color:</label>
+            <input type="color" id="bg_color" name="bg_color" value="#ffffff">
+            
+            <button type="submit">Generate</button>
         </form>
 
         {% if qr_img_base64 %}
