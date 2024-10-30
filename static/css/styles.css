@@ -214,6 +214,14 @@ input:checked + .slider:before {
 #fg_indigo.color-radio { background-color: #4b0082; }
 #fg_violet.color-radio { background-color: #ee82ee; }
 
+#bg_red.color-radio { background-color: #ff0000; }
+#bg_orange.color-radio { background-color: #ffa500; }
+#bg_yellow.color-radio { background-color: #ffff00; }
+#bg_green.color-radio { background-color: #008000; }
+#bg_blue.color-radio { background-color: #0000ff; }
+#bg_indigo.color-radio { background-color: #4b0082; }
+#bg_violet.color-radio { background-color: #ee82ee; }
+
 .color-radio:checked {
     border-color: #333;
     transform: scale(1.5);
