@@ -14,3 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.setAttribute("data-theme", savedTheme);
     document.getElementById("themeToggle").checked = savedTheme === "dark";
 });
+
+
+function toggleCustomFgColor() {
+    document.getElementById('fg_custom_color').disabled = false;
+}
+
+function toggleCustomBgColor() {
+    document.getElementById('bg_custom_color').disabled = false;
+}
+
+function updateFgColor() {
+    document.getElementById('fg_custom').value = document.getElementById('fg_custom_color').value;
+}
+
+function updateBgColor() {
+    document.getElementById('bg_custom').value = document.getElementById('bg_custom_color').value;
+}

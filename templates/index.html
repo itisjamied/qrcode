@@ -23,16 +23,66 @@
         <form action="/generate" method="POST">
             <label for="url">Enter URL:</label>
             <input type="text" id="url" name="url" required placeholder="https://example.com">
-
-            <label for="fg_color">Foreground Color:</label>
-            <input type="color" id="fg_color" name="fg_color" value="#000000">
-            
-            <label for="bg_color">Background Color:</label>
-            <input type="color" id="bg_color" name="bg_color" value="#ffffff">
+        
+            <label>Foreground Color:</label>
+            <div>
+                <input type="radio" id="fg_red" name="fg_color" value="#ff0000" checked>
+                <label for="fg_red" style="color: #ff0000;">Red</label>
+        
+                <input type="radio" id="fg_orange" name="fg_color" value="#ffa500">
+                <label for="fg_orange" style="color: #ffa500;">Orange</label>
+        
+                <input type="radio" id="fg_yellow" name="fg_color" value="#ffff00">
+                <label for="fg_yellow" style="color: #ffff00;">Yellow</label>
+        
+                <input type="radio" id="fg_green" name="fg_color" value="#008000">
+                <label for="fg_green" style="color: #008000;">Green</label>
+        
+                <input type="radio" id="fg_blue" name="fg_color" value="#0000ff">
+                <label for="fg_blue" style="color: #0000ff;">Blue</label>
+        
+                <input type="radio" id="fg_indigo" name="fg_color" value="#4b0082">
+                <label for="fg_indigo" style="color: #4b0082;">Indigo</label>
+        
+                <input type="radio" id="fg_violet" name="fg_color" value="#ee82ee">
+                <label for="fg_violet" style="color: #ee82ee;">Violet</label>
+        
+                <input type="radio" id="fg_custom" name="fg_color" value="" onclick="toggleCustomFgColor()">
+                <label for="fg_custom">Custom</label>
+                <input type="color" id="fg_custom_color" name="fg_custom_color" value="#000000" onchange="updateFgColor()" disabled>
+            </div>
+        
+            <label>Background Color:</label>
+            <div>
+                <input type="radio" id="bg_red" name="bg_color" value="#ff0000">
+                <label for="bg_red" style="color: #ff0000;">Red</label>
+        
+                <input type="radio" id="bg_orange" name="bg_color" value="#ffa500">
+                <label for="bg_orange" style="color: #ffa500;">Orange</label>
+        
+                <input type="radio" id="bg_yellow" name="bg_color" value="#ffff00">
+                <label for="bg_yellow" style="color: #ffff00;">Yellow</label>
+        
+                <input type="radio" id="bg_green" name="bg_color" value="#008000">
+                <label for="bg_green" style="color: #008000;">Green</label>
+        
+                <input type="radio" id="bg_blue" name="bg_color" value="#0000ff">
+                <label for="bg_blue" style="color: #0000ff;">Blue</label>
+        
+                <input type="radio" id="bg_indigo" name="bg_color" value="#4b0082">
+                <label for="bg_indigo" style="color: #4b0082;">Indigo</label>
+        
+                <input type="radio" id="bg_violet" name="bg_color" value="#ee82ee">
+                <label for="bg_violet" style="color: #ee82ee;">Violet</label>
+        
+                <input type="radio" id="bg_custom" name="bg_color" value="" onclick="toggleCustomBgColor()">
+                <label for="bg_custom">Custom</label>
+                <input type="color" id="bg_custom_color" name="bg_custom_color" value="#ffffff" onchange="updateBgColor()" disabled>
+            </div>
             
             <button type="submit">Generate</button>
         </form>
-
+        
         {% if qr_img_base64 %}
             <div class="qr-container">
                 <h2>Generated QR Code</h2>
