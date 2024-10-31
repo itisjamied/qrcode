@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Dark Mode Toggle Switch -->
+    <div class="toggle-switch">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
+
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        
+        <form id="qrForm">
+            <label for="url">Enter URL:</label>
+            <input type="text" id="url" name="url" required placeholder="https://example.com">
+        
+            <label>Foreground Color:</label>
+            <div class="color-picker">
+                <!-- Foreground color options -->
+                <input type="radio" id="fg_red" name="fg_color" value="#ff0000" class="color-radio" checked>
+                <input type="radio" id="fg_orange" name="fg_color" value="#ffa500" class="color-radio">
+                <input type="radio" id="fg_yellow" name="fg_color" value="#ffff00" class="color-radio">
+                <input type="radio" id="fg_green" name="fg_color" value="#008000" class="color-radio">
+                <input type="radio" id="fg_blue" name="fg_color" value="#0000ff" class="color-radio">
+                <input type="radio" id="fg_indigo" name="fg_color" value="#4b0082" class="color-radio">
+                <input type="radio" id="fg_violet" name="fg_color" value="#ee82ee" class="color-radio">
+            </div>
+        
+            <label>Background Color:</label>
+            <div class="color-picker">
+                <!-- Background color options -->
+                <input type="radio" id="bg_red" name="bg_color" value="#ff0000" class="color-radio">
+                <input type="radio" id="bg_orange" name="bg_color" value="#ffa500" class="color-radio">
+                <input type="radio" id="bg_yellow" name="bg_color" value="#ffff00" class="color-radio">
+                <input type="radio" id="bg_green" name="bg_color" value="#008000" class="color-radio">
+                <input type="radio" id="bg_blue" name="bg_color" value="#0000ff" class="color-radio">
+                <input type="radio" id="bg_indigo" name="bg_color" value="#4b0082" class="color-radio">
+                <input type="radio" id="bg_violet" name="bg_color" value="#ee82ee" class="color-radio">
+            </div>
+            
+            <button type="button" onclick="generateQRCode()">Generate</button>
+        </form>
+        
+        <div class="qr-container">
+            <h2>Generated QR Code</h2>
+            <div id="qrcode"></div>
+            <button onclick="downloadQRCode()">Download QR Code</button>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
