@@ -191,6 +191,8 @@ input:checked + .slider:before {
 .color-picker {
     display: flex;
     gap: 8px;
+    align-items: center;
+    justify-content: center;
 }
 
 .color-radio {
