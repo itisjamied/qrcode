@@ -33,6 +33,8 @@ function generateQRCode() {
         colorDark: fgColor,
         colorLight: bgColor
     });
+
+    document.querySelector(".qr-container").classList.remove("hidden");
 }
 
 function downloadQRCode() {
