@@ -16,22 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// function toggleCustomFgColor() {
-//     document.getElementById('fg_custom_color').disabled = false;
-// }
-
-// function toggleCustomBgColor() {
-//     document.getElementById('bg_custom_color').disabled = false;
-// }
-
-// function updateFgColor() {
-//     document.getElementById('fg_custom').value = document.getElementById('fg_custom_color').value;
-// }
-
-// function updateBgColor() {
-//     document.getElementById('bg_custom').value = document.getElementById('bg_custom_color').value;
-// }
-
 function generateQRCode() {
     // Get URL and colors from form
     const url = document.getElementById("url").value;
